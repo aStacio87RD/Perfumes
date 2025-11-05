@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Atracción Pura – Perfume con Feromonas</title>
+
+  <!-- Meta tags optimizadas para anuncios / OG -->
+  <meta name="description" content="Atracción Pura — Perfume con feromonas. Confianza, magnetismo y una fragancia que deja huella. Ordena por WhatsApp.">
+  <meta property="og:title" content="Atracción Pura – Perfume con Feromonas">
+  <meta property="og:description" content="Perfume unisex con feromonas naturales. Edición limitada. Compra por WhatsApp.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1600180758890-6b94519a8ba9?auto=format&fit=crop&w=1200&q=80">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="Atracción Pura">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <style>
+    /* ---------- Reset y tipografía ---------- */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; background:#080808;color:#fff;line-height:1.45}
+
+    /* ---------- Contenedor ---------- */
+    .wrap{max-width:1200px;margin:0 auto;padding:20px}
+
+    /* ---------- Hero (desktop) ---------- */
+    .hero{
+      position:relative;
+      display:flex;
+      align-items:center;
+      gap:40px;
+      min-height:78vh;
+      padding:60px 20px;
+      overflow:hidden;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,0,150,0.02));
+      box-shadow:0 10px 40px rgba(0,0,0,0.6);
+    }
+    .hero .left{flex:1;z-index:5}
+    .hero h1{font-size:44px;letter-spacing:1px;margin-bottom:12px;background:linear-gradient(90deg,#ffd1e8,#ff7eb3);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero p.lead{color:#d7d7d7;font-size:18px;max-width:650px;margin-bottom:18px}
+    .cta-row{display:flex;gap:12px;align-items:center}
+    .btn{display:inline-block;padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:700;text-transform:uppercase;letter-spacing:0.6px}
+    .btn.primary{background:linear-gradient(90deg,#ff758c,#ff7eb3);color:#fff}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.12);color:#fff}
+
+    /* ---------- Product visual ---------- */
+    .product-card{width:360px;padding:18px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.04);text-align:center}
+    .product-card img{width:100%;border-radius:10px;display:block;margin-bottom:12px}
+    .price{font-size:20px;font-weight:800;color:#ffd1e8;margin-bottom:6px}
+
+    /* ---------- Features ---------- */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin:36px 0}
+    .feature{padding:18px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+
+    /* ---------- Aroma canvas (visual) ---------- */
+    #aromaCanvas{position:absolute;right:0;top:0;width:60%;height:100%;pointer-events:none;z-index:2;mix-blend-mode:screen;opacity:0.85}
+
+    /* ---------- Floating WhatsApp chat ---------- */
+    .whatsapp-float{
+      position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;flex-direction:column;gap:10px;
+    }
+    .whatsapp-btn{
+      display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:12px 14px;border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,0.35);
+    }
+    .whatsapp-mini{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#25D366;color:#fff;font-weight:800}
+
+    /* ---------- Language selector ---------- */
+    .lang-switch{position:fixed;left:18px;bottom:18px;z-index:9999;background:rgba(0,0,0,0.5);padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,0.06)}
+    .lang-switch select{background:transparent;color:#fff;border:0;padding:6px;font-weight:700}
+
+    /* ---------- Ad-optimized section (short clear CTA) ---------- */
+    .ad-cta{
+      margin:40px 0;padding:28px;border-radius:14px;background:linear-gradient(90deg,rgba(255,126,179,0.06),rgba(255,183,197,0.03));display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .ad-cta .left{flex:1}
+    .ad-cta h3{font-size:20px;margin-bottom:6px}
+    .ad-cta p{color:#e6e6e6}
+    .ad-cta .cta-small{padding:12px 18px;border-radius:12px}
+
+    /* ---------- 9:16 creative preview (useful para TikTok/IG) ---------- */
+    .creative-preview{margin-top:28px;display:flex;gap:16px;flex-wrap:wrap}
+    .creative-card{width:220px;height:390px;border-radius:12px;overflow:hidden;background:#0b0b0b;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px}
+    .creative-card .copy{font-weight:700;text-align:center;padding:8px 6px}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:900px){
+      .hero{flex-direction:column;min-height:85vh;padding:40px}
+      #aromaCanvas{width:100%;height:55%;top:0}
+      .creative-card{width:46%;height:300px}
+    }
+    @media (max-width:520px){
+      .creative-card{width:100%;height:450px}
+      .product-card{width:280px}
+      .hero h1{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+  <!-- ---------- Lenguaje y detección ---------- -->
+  <script>
+    const strings = {
+      es: {
+        title: "Atracción Pura",
+        tagline: "Perfume con feromonas naturales — confianza, magnetismo y presencia.",
+        heroLead: "Fragancia unisex diseñada para potenciar tu atractivo natural. Edición limitada, 50ml.",
+        orderNow: "Ordenar ahora",
+        price: "Precio: RD$2,499",
+        featuresTitle: "Por qué funciona",
+        features: [
+          "Feromonas activas clínicamente formuladas",
+          "Aroma sofisticado y duradero",
+          "Ideal para citas, eventos y momentos especiales"
+        ],
+        adTitle: "Prueba Rápida: Siéntelo. Notalo. Conéctalo.",
+        adBtn: "Compra Ya"
+      },
+      en: {
+        title: "Pure Attraction",
+        tagline: "Perfume with natural pheromones — confidence, magnetism, presence.",
+        heroLead: "Unisex fragrance crafted to amplify your natural allure. Limited edition, 50ml.",
+        orderNow: "Order Now",
+        price: "Price: RD$49.99",
+        featuresTitle: "Why it works",
+        features: [
+          "Clinically-formulated active pheromones",
+          "Sophisticated, long-lasting scent",
+          "Perfect for dates, events and memorable moments"
+        ],
+        adTitle: "Try it: Feel it. Notice it. Connect.",
+        adBtn: "Buy Now"
+      },
+      pt: {
+        title: "Atração Pura",
+        tagline: "Perfume com feromonas naturais — confiança, magnetismo, presença.",
+        heroLead: "Fragrância unissex que potencializa seu encanto natural. Edição limitada, 50ml.",
+        orderNow: "Pedir Agora",
+        price: "Preço: RD$49,99",
+        featuresTitle: "Por que funciona",
+        features: [
+          "Feromonas ativas formuladas clinicamente",
+          "Aroma sofisticado e de longa duração",
+          "Perfeito para encontros, eventos e momentos especiais"
+        ],
+        adTitle: "Experimente: Sinta. Note. Conecte.",
+        adBtn: "Compre Agora"
+      }
+    };
+
+    // detectar idioma del navegador y preferencia guardada
+    const userLang = (navigator.language || navigator.userLanguage).slice(0,2);
+    const defaultLang = localStorage.getItem('lp_lang') || (['es','en','pt'].includes(userLang) ? userLang : 'es');
+    let currentLang = defaultLang;
+  </script>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero">
+      <!-- canvas aroma visual -->
+      <canvas id="aromaCanvas" aria-hidden="true"></canvas>
+
+      <div class="left">
+        <h1 id="title">Atracción Pura</h1>
+        <p class="lead" id="tagline">Perfume con feromonas naturales — confianza, magnetismo y presencia.</p>
+        <p class="lead" id="heroLead">Fragancia unisex diseñada para potenciar tu atractivo natural. Edición limitada, 50ml.</p>
+
+        <div class="cta-row">
+          <a id="orderBtn" class="btn primary" href="https://wa.me/18094078708?text=Hola!%20Estoy%20interesado%20en%20el%20perfume%20Atracci%C3%B3n%20Pura" target="_blank" rel="noopener">Ordenar ahora</a>
+          <a class="btn ghost" href="#features" id="learnBtn">Ver características</a>
+        </div>
+
+        <div style="margin-top:14px;color:#bfbfbf;font-size:14px" id="price">Precio: RD$2,499</div>
+      </div>
+
+      <aside class="product-card" role="complementary" aria-label="Producto">
+        <img id="productImage" src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba9?auto=format&fit=crop&w=600&q=80" alt="Perfume Atracción Pura">
+        <div style="font-size:16px;font-weight:800" id="productName">Atracción Pura – Edición Limitada</div>
+        <div class="price" id="priceSmall">RD$2,499</div>
+        <a id="buyNowSmall" class="btn primary" href="https://wa.me/18094078708?text=Quiero%20comprar%20el%20perfume%20Atracci%C3%B3n%20Pura" target="_blank">Comprar por WhatsApp</a>
+      </aside>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="features" aria-label="Características principales">
+      <div>
+        <h3 id="featuresTitle">Por qué funciona</h3>
+        <ul id="featuresList" style="margin-top:12px;color:#d8d8d8;list-style:disc;padding-left:20px"></ul>
+      </div>
+      <div class="feature"><strong>Nota de salida</strong><p style="color:#cfcfcf;margin-top:8px">Cítricos delicados que captan la atención.</p></div>
+      <div class="feature"><strong>Corazón</strong><p style="color:#cfcfcf;margin-top:8px">Rosas y madera suave para una presencia sofisticada.</p></div>
+    </section>
+
+    <!-- AD-OPTIMIZED CTA -->
+    <section class="ad-cta" aria-label="Ad optimized CTA">
+      <div class="left">
+        <h3 id="adTitle">Prueba Rápida: Siéntelo. Notalo. Conéctalo.</h3>
+        <p id="adCopy" style="color:#e6e6e6">Disponible ahora — edición limitada. Envío rápido y atención personalizada por WhatsApp.</p>
+      </div>
+      <div>
+        <a id="adBtn" class="btn primary cta-small" href="https://wa.me/18094078708?text=Me%20interesa%20la%20oferta%20de%20Atracci%C3%B3n%20Pura" target="_blank">Compra Ya</a>
+      </div>
+    </section>
+
+    <!-- Creative preview (9:16) -->
+    <section aria-label="Creative preview">
+      <h3 style="margin-bottom:12px">Previsualización Creativa 9:16 (sugerencias para TikTok/IG)</h3>
+      <div class="creative-preview">
+        <div class="creative-card">
+          <div style="flex:1;display:flex;align-items:center;justify-content:center">
+            <img src="https://images.unsplash.com/photo-1516595439425-38a9db4b3a19?auto=format&fit=crop&w=400&q=60" style="width:100%;height:60%;object-fit:cover;border-radius:8px" alt="preview">
+          </div>
+          <div class="copy">Siente la atracción. Edición limitada.</div>
+          <a class="btn primary" href="https://wa.me/18094078708?text=Quiero%20la%20versi%C3%B3n%209:16" target="_blank" style="margin-top:8px">Ordenar</a>
+        </div>
+
+        <div class="creative-card">
+          <div style="flex:1;display:flex;align-items:center;justify-content:center">
+            <img src="https://images.unsplash.com/photo-1541534401786-3f6f7a7a1b9e?auto=format&fit=crop&w=400&q=60" style="width:100%;height:60%;object-fit:cover;border-radius:8px" alt="preview2">
+          </div>
+          <div class="copy">Confía. Conecta. Deja huella.</div>
+          <a class="btn primary" href="https://wa.me/18094078708?text=Necesito%20el%20video%209:16" target="_blank" style="margin-top:8px">Solicitar</a>
+        </div>
+      </div>
+    </section>
+
+    <footer style="margin-top:40px;padding:24px 12px;border-top:1px solid rgba(255,255,255,0.03);color:#bfbfbf">
+      © 2025 Atracción Pura · Contacto: +1 (809) 407-8708 · Hecho con cuidado.
+    </footer>
+  </div>
+
+  <!-- Floating WhatsApp -->
+  <div class="whatsapp-float" aria-hidden="false">
+    <a class="whatsapp-btn" id="waFull" href="https://wa.me/18094078708?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20Atracci%C3%B3n%20Pura" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.87 11.87 0 0012 .75 11.87 11.87 0 003.48 3.48 11.87 11.87 0 00.75 12c0 2.02.53 3.92 1.54 5.64L.75 23.25l5.12-1.33A11.87 11.87 0 0012 23.25c2.02 0 3.92-.53 5.64-1.54A11.87 11.87 0 0023.25 12c0-2.02-.53-3.92-1.54-5.64z" fill="#25D366"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a class="whatsapp-mini" id="waMini" href="https://wa.me/18094078708?text=Hola!%20Quiero%20m%C3%A1s%20info" target="_blank">WA</a>
+  </div>
+
+  <!-- Language switcher -->
+  <div class="lang-switch" role="region" aria-label="Selector de idioma">
+    <label for="langSelect" style="font-weight:700;margin-right:8px">Idioma</label>
+    <select id="langSelect" aria-controls="title tagline heroLead price">
+      <option value="es">ES</option>
+      <option value="en">EN</option>
+      <option value="pt">PT</option>
+    </select>
+  </div>
+
+  <!-- ---------- Scripts: aroma visual + translation ---------- -->
+  <script>
+    /* ------------------ Traducción dinámica ------------------ */
+    const els = {
+      title: document.getElementById('title'),
+      tagline: document.getElementById('tagline'),
+      heroLead: document.getElementById('heroLead'),
+      orderBtn: document.getElementById('orderBtn'),
+      price: document.getElementById('price'),
+      priceSmall: document.getElementById('priceSmall'),
+      featuresTitle: document.getElementById('featuresTitle'),
+      featuresList: document.getElementById('featuresList'),
+      adTitle: document.getElementById('adTitle'),
+      adBtn: document.getElementById('adBtn'),
+      buyNowSmall: document.getElementById('buyNowSmall'),
+      productName: document.getElementById('productName')
+    };
+
+    function applyLang(lang){
+      const s = strings[lang] || strings['es'];
+      els.title.textContent = s.title;
+      els.tagline.textContent = s.tagline;
+      els.heroLead.textContent = s.heroLead;
+      els.orderBtn.textContent = s.orderNow;
+      els.price.textContent = s.price;
+      els.priceSmall.textContent = s.price;
+      els.featuresTitle.textContent = s.featuresTitle;
+      els.featuresList.innerHTML = s.features.map(i=>`<li style="margin-bottom:8px;color:#d3d3d3">${i}</li>`).join('');
+      els.adTitle.textContent = s.adTitle;
+      els.adBtn.textContent = s.adBtn;
+      els.buyNowSmall.textContent = s.orderNow;
+      els.productName.textContent = s.title + " – Edición Limitada";
+
+      // actualizar enlaces de WhatsApp con mensaje en el idioma
+      const base = "https://wa.me/18094078708?text=";
+      const msg = encodeURIComponent({
+        es: "Hola! Estoy interesado en el perfume Atracción Pura",
+        en: "Hi! I'm interested in the Pure Attraction perfume",
+        pt: "Olá! Estou interessado no perfume Atração Pura"
+      }[lang] || "");
+      document.getElementById('orderBtn').href = base + msg;
+      document.getElementById('buyNowSmall').href = base + msg;
+      document.getElementById('adBtn').href = base + msg;
+      document.getElementById('waFull').href = base + encodeURIComponent({
+        es: "Hola! Quiero información sobre Atracción Pura",
+        en: "Hi! I'd like information about Pure Attraction",
+        pt: "Olá! Quero informação sobre Atração Pura"
+      }[lang]);
+      document.getElementById('waMini').href = base + encodeURIComponent({
+        es: "Hola! Quiero más info",
+        en: "Hi! I want more info",
+        pt: "Olá! Quero mais info"
+      }[lang]);
+
+      // guardar preferencia
+      localStorage.setItem('lp_lang', lang);
+      currentLang = lang;
+      document.getElementById('langSelect').value = lang;
+    }
+
+    // init language
+    document.getElementById('langSelect').addEventListener('change', e=>applyLang(e.target.value));
+    applyLang(currentLang);
+
+    /* ------------------ Aroma visual (canvas particles) ------------------ */
+    const canvas = document.getElementById('aromaCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function resizeCanvas(){
+      canvas.width = canvas.clientWidth * devicePixelRatio;
+      canvas.height = canvas.clientHeight * devicePixelRatio;
+      ctx.scale(devicePixelRatio, devicePixelRatio);
+    }
+    function rand(min,max){return Math.random()*(max-min)+min}
+    function createParticle(){
+      const w = canvas.clientWidth, h = canvas.clientHeight;
+      return {
+        x: rand(w*0.2, w*0.9),
+        y: rand(h*0.6, h*0.95),
+        r: rand(30,110),
+        alpha: rand(0.02,0.09),
+        vy: rand(-0.15, -0.6),
+        vx: rand(-0.15,0.15),
+        hue: rand(320,350),
+        life: rand(200,500)
+      };
+    }
+    function initParticles(n=18){
+      particles = [];
+      for(let i=0;i<n;i++) particles.push(createParticle());
+    }
+    function draw(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      for(let p of particles){
+        ctx.beginPath();
+        const grd = ctx.createRadialGradient(p.x, p.y, p.r*0.1, p.x, p.y, p.r);
+        grd.addColorStop(0, `hsla(${p.hue},90%,70%,${p.alpha})`);
+        grd.addColorStop(1, `hsla(${p.hue},80%,60%,0)`);
+        ctx.fillStyle = grd;
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fill();
+
+        // floating movement
+        p.x += p.vx;
+        p.y += p.vy;
+        p.life--;
+        if(p.life < 0 || p.y + p.r < -40 || p.x < -200){
+          Object.assign(p, createParticle());
+          p.y = canvas.clientHeight + p.r;
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    // init canvas
+    function startAroma(){
+      resizeCanvas();
+      initParticles(18);
+      draw();
+    }
+    window.addEventListener('resize', ()=>{resizeCanvas()});
+    startAroma();
+
+    /* ------------------ Smooth scroll for "Ver características" ------------------ */
+    document.getElementById('learnBtn').addEventListener('click', (e)=>{
+      e.preventDefault();
+      document.getElementById('features').scrollIntoView({behavior:'smooth'});
+    });
+
+    // set lang select to stored
+    document.getElementById('langSelect').value = currentLang;
+
+    /* ------------------ Accessibility: reduce motion preference ------------------ */
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prefersReduced){
+      // stop heavy animations
+      cancelAnimationFrame(draw);
+      canvas.style.display = 'none';
+    }
+
+    /* ------------------ (Opcional) Recomendaciones para Ads: dinámicamente cambiar meta tags si hace falta -------------- */
+    // Si usas un sistema de SSR, actualiza OG tags por campaña.
+  </script>
+</body>
+</html>
